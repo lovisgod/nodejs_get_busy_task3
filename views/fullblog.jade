@@ -1,0 +1,9 @@
+extends layout
+
+block content 
+    a(href="/", class="homelink")
+      img(src="/images/arrow.png", alt="Home", class="homearrow")
+    div(class="full-blog")
+            div.card
+                h3= blog.title
+                p= blog.body

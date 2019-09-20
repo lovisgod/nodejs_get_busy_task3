@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    -var blogs = blogs 
+    div(class="blogs")
+        for blog in blogs
+            div.card
+                h3= blog.title
+                p= blog.body
+                a(href="/full-blog", class="read-full")
