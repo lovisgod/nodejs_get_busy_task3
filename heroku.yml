@@ -1,3 +1,4 @@
 build:
   docker:
+    # Heroku starts the docker-compose file 
     web: docker-compose.yml
