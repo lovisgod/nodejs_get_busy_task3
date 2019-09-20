@@ -1,10 +1,9 @@
 extends layout
 
 block content
-    -var blogs = blogs 
     div(class="blogs")
         for blog in blogs
-            div.card
+            div(class="blogcard")
                 h3= blog.title
-                p= blog.body
-                a(href="/full-blog", class="read-full")
+                p.bbody= blog.body
+                a(href=`/full-blog?id=${blog.id}`, class="read-full") Read more

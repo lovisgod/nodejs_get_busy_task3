@@ -4,9 +4,12 @@ let blogs;
 const getblogs = async () => {
     try{
       await rp('https://jsonplaceholder.typicode.com/posts', (err, res) => {
-        if (err) blogs = 'No blog found';    
-        blogs = res.body
-        console.log(blogs)
+        if (err) { blogs = 'No blog found' };   
+        if(res === undefined) { 
+          blogs = 'An error occured please try again'
+        }else{
+          blogs = res.body
+        }; 
       });
     }catch(e){
      console.log(err);
@@ -15,4 +18,4 @@ const getblogs = async () => {
   return blogs;
 }
 
-module.exports = { getBlog };
+module.exports = { getblogs };
