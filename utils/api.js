@@ -12,7 +12,7 @@ const getblogs = async () => {
         }; 
       });
     }catch(e){
-     console.log(err);
+     console.log(e);
      blogs = 'No blog found';
     }
   return blogs;

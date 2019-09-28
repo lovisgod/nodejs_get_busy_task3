@@ -1,5 +1,4 @@
 extends layout
-
 block content 
     a(href="/", class="homelink")
       img(src="/images/arrow.png", alt="Home", class="homearrow")
@@ -7,3 +6,16 @@ block content
             div.card
                 h3= blog.title
                 p= blog.body
+            div.comments
+                form(name="add-comment", method="post", action=`/add-comment?id=${blog.id}`)
+                  div.input
+                    h5='Add comment here'
+                    textarea(name="description", cols="40", rows="5", id="textarea")
+                  div.actions
+                    button(type="submit", value="Add-Comment", class="submitbutton", onclick='save()') submit
+            div.addcomment
+                h3= "comments"
+                if description
+                  h5.user= "Anonymous"
+                  p=description
+                else
