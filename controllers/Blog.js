@@ -20,13 +20,24 @@ class Blog {
         try{
           const { id } = req.query;
           const blog = await BlogContainer.find((blogd) => { return blogd.id == id});
-          console.log( typeof blog);
           return res.status(200).render('fullblog', { title: 'Full blog', blog })
         } catch(e){
            console.log(e);
            return res.status(500).send(e);
         }
     };
+
+    static async AddComment(req, res) {
+      try {
+        const { id } = req.query;
+        const { description } = req.body;
+        const blog = await BlogContainer.find((blogd) => { return blogd.id == id});
+        return res.status(200).render('fullblog', { title: 'Full blog', blog, description })
+      } catch (e) {
+        console.log(e);
+           return res.status(500).send(e);
+      }
+    }
 }
 
 module.exports = { Blog };
